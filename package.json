@@ -1,0 +1,34 @@
+{
+  "name": "test-legend",
+  "version": "1.0.0",
+  "description": "Describe test-legend here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-preact-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-preact-app",
+    "test": "nwb test-preact",
+    "test:coverage": "nwb test-preact --coverage",
+    "test:watch": "nwb test-preact --server"
+  },
+  "dependencies": {
+    "preact": "^8.1.0",
+    "preact-compat": "^3.16.0"
+  },
+  "devDependencies": {
+    "arcgis-react-redux-legend": "^2.0.0-beta-1",
+    "esri-loader": "^1.0.0",
+    "esri-loader-react": "^1.0.0",
+    "nwb": "0.17.x",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
+}
