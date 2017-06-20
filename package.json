@@ -19,6 +19,8 @@
     "arcgis-react-redux-legend": "^2.0.0-beta-1",
     "esri-loader": "^1.0.0",
     "esri-loader-react": "^1.0.0",
+    "is-mobile": "^0.2.2",
+    "is-webgl-enabled": "^1.0.2",
     "nwb": "0.17.x",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

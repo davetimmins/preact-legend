@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { dojoRequire } from 'esri-loader';
 import { MapLegend, setInitialLegend } from 'arcgis-react-redux-legend';
+import isWebGLEnabled from 'is-webgl-enabled';
+import isMobile from 'is-mobile';
 
 const styles = {
   fullSize: {
@@ -28,7 +30,7 @@ class MapUi extends Component {
       dojoRequire(
         [
           'esri/Map',
-          'esri/views/MapView',
+          isWebGLEnabled() && !isMobile() ? 'esri/views/SceneView' : 'esri/views/MapView',
           'esri/WebMap'
         ],
         (Map, View, WebMap) => {
@@ -54,10 +56,11 @@ class MapUi extends Component {
       dojoRequire(
         [
           'esri/Map',
-          'esri/views/MapView',
-          'esri/layers/MapImageLayer'
+          isWebGLEnabled() && !isMobile() ? 'esri/views/SceneView' : 'esri/views/MapView',
+          'esri/layers/MapImageLayer',
+          'esri/layers/FeatureLayer'
         ],
-        (Map, View, MapImageLayer) => {
+        (Map, View, MapImageLayer, FeatureLayer) => {
           const layer1 = new MapImageLayer({
             url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/RedlandsEmergencyVehicles/MapServer'
           });
@@ -71,9 +74,13 @@ class MapUi extends Component {
             url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Hurricanes/MapServer/'
           });
 
+          const layer4 = new FeatureLayer({
+            url: 'http://services2.arcgis.com/j80Jz20at6Bi0thr/arcgis/rest/services/HawaiiLavaFlowHazardZones/FeatureServer/0'
+          })
+
           const map = new Map({
             basemap: 'topo',
-            layers: [layer1, layer2, layer3]
+            layers: [layer1, layer4, layer3, layer2]
           });
 
           const view = new View({
@@ -101,9 +108,7 @@ class MapUi extends Component {
   };
 
   componentDidMount() {
-    const webmapId = this.getUrlParameter('webmap');
-
-    this.createMap(webmapId);
+    this.createMap(this.getUrlParameter('webmap'));
   }
 
   render() {
