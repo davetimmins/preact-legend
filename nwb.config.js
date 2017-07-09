@@ -1,6 +1,6 @@
 module.exports = {
   type: 'preact-app',
   webpack: {
-    publicPath: 'https://davetimmins.com/preact-legend/'
+    publicPath: 'https://davetimmins.github.io/preact-legend/'
   }
 }
