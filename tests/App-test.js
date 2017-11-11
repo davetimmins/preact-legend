@@ -1,7 +1,7 @@
 import expect from 'expect'
 import {h, render} from 'preact'
 
-import App from 'src/App'
+import App from 'src/components/app-main'
 
 describe('App component', () => {
   let node
@@ -14,8 +14,8 @@ describe('App component', () => {
     render(null, node)
   })
 
-  it('displays a welcome message', () => {
+  it('renders without error', () => {
     render(<App/>, node)
-    expect(node.textContent).toContain('Welcome to')
+    expect(node.textContent).toBe('')
   })
 })

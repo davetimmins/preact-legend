@@ -1,30 +1,16 @@
 import {h, Component} from 'preact'
-import EsriLoader from 'esri-loader-react';
 
 import MapUi from './map-view';
 
 export default class AppMain extends Component {
-  initialState = {
-    loaded: false
-  };
-  state = this.initialState;
-
-  onEsriApiLoaded = error => {
-    if (!error) {
-      this.setState({ loaded: true });
-    }
-  };
-
+  
   render() {
     const options = {
       url: 'https://js.arcgis.com/4.4/'
     };
 
     return (
-      <div>
-        <EsriLoader options={options} ready={this.onEsriApiLoaded} />
-        {this.state.loaded ? <MapUi mapId={'Legend example'} /> : null}
-      </div>
+      <MapUi mapId={'Legend example'} options={options} />
     );
   }
 }
