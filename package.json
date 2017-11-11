@@ -16,7 +16,7 @@
     "preact-compat": "^3.17.0"
   },
   "devDependencies": {
-    "arcgis-react-redux-legend": "^2.0.1",
+    "arcgis-react-redux-legend": "^2.0.2",
     "esri-loader": "^1.5.0",
     "esri-loader-react": "^2.0.0-beta.2",
     "is-mobile": "^0.2.2",
